@@ -1,0 +1,19 @@
+@use '../../style/globals';
+
+@mixin image {
+  image-rendering: optimizeQuality;
+}
+
+.image-round {
+  @include image;
+  border-radius: 50%;
+}
+
+.image-medium {
+  @include image;
+  width: 10rem;
+  height: 10rem;
+
+  object-fit: cover;
+  object-position: center;
+}

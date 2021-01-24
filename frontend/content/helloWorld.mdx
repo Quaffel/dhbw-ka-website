@@ -1,0 +1,40 @@
+import { RoundImage } from 'components/mdx/round-image/roundImage';
+
+# Hello world from mdx!
+
+## Regular markdown (GitHub flavor)
+
+You can write anything here that is allowed in regulra markdown files as well.
+This includes _italic_, **bold** and ~~struck-through~~ text, [links with a descriptor](https://github.github.com/gfm/) and even tables:
+
+City | Country
+--- | ---
+Karlsruhe | Germany
+
+Code blocks are supported as well - although it's quite unlikely we'll need them on such a website.
+
+```java
+public static void main(String[] args) {
+  System.out.println("Hello world");
+}
+```
+
+Other, essential features are
+- lists, obviously
+  - nested lists
+
+As a surprise, mdx also supports task list items:
+- [x] noticed it
+- [ ] care about it
+
+## Custom components
+
+The following image is a regular React component.
+By writing powerful, highly-adjustable components, we can write beautiful-looking articles with almost no effort in a maintainable way.
+
+<RoundImage src={"https://picsum.photos/100/200"} alt={"A lorem picsum"}/>
+
+## A note on styling
+
+As you can see, the normal design isn't very stunning.
+We can provide custom styles using the `MDXProvider` component - but we'll cross that bridge when we come to it.

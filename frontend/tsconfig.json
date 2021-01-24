@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "target": "es6",
+    "sourceMap": true,
+    "jsx": "react",
+    "lib": [
+      "DOM",
+      "ES2020"
+    ],
+    "rootDirs": ["src", "content"],
+    "baseUrl": "src"
+  },
+  "include": [
+    "src",
+    "content"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

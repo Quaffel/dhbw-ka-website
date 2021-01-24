@@ -1,0 +1,18 @@
+# defining git lfs macro attribute
+[attr]lfs filter=lfs  diff=lfs merge=lfs -text
+
+##########
+# images #
+##########
+
+*.png lfs
+*.jpeg lfs
+*jpg lfs
+*.svg lfs text
+
+
+#########
+# fonts #
+#########
+
+*.ttf
