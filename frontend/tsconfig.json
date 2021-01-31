@@ -12,7 +12,15 @@
       "ES2020"
     ],
     "rootDirs": ["src", "content"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "asIs"
+        }
+      }
+    ]
   },
   "include": [
     "src",
