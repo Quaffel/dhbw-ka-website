@@ -1,0 +1,19 @@
+@use '../../style/globals';
+
+@mixin image {
+  image-rendering: optimizeQuality;
+}
+
+.image-rect {
+  @include image;
+  border-radius: 0%;
+}
+
+.image-full {
+  @include image;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
