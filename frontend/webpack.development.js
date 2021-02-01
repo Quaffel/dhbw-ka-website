@@ -1,14 +1,16 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
 
-const commonConfiguration = require('./webpack.common');
+const commonConfiguration = require('./webpack.common')({
+  styleLocalIdentName: '[name][local]-[hash]'
+});
 
 module.exports = merge(commonConfiguration, {
-  mode: "development",
+  mode: 'development',
 
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: "src/static"
+    contentBase: 'src/static'
   },
 
   output: {

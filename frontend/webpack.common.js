@@ -1,34 +1,52 @@
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
-module.exports = {
-  name: 'dhbw-ka-website-dev',
-  target: 'web',
+/**
+ * @param options {{styleLocalIdentName: string}}
+ */
+module.exports = function(options) {
+  return {
+    name: 'dhbw-ka-website-dev',
+    target: 'web',
 
-  entry: {
-    frontend: './src/index.tsx'
-  },
+    entry: {
+      frontend: './src/index.tsx'
+    },
 
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: ['babel-loader', 'ts-loader']
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.mdx$/,
-        use: ['babel-loader', '@mdx-js/loader']
-      }
-    ]
-  },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: ['babel-loader', 'ts-loader']
+        },
+        {
+          test: /\.mdx$/,
+          use: ['babel-loader', '@mdx-js/loader']
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                esModule: true,
+                modules: {
+                  localIdentName: options?.styleLocalIdentName ?? '[hash]'
+                },
+                importLoaders: 1
+              }
+            },
+            'sass-loader'
+          ]
+        }
+      ]
+    },
 
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.scss', '.mdx'],
-    modules: ["src", "content", "node_modules"],
-    plugins: [new TsconfigPathsPlugin()]
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js', '.mdx'],
+      modules: ['src', 'content', 'node_modules'],
+      plugins: [new TsconfigPathsPlugin()]
+    }
   }
 }

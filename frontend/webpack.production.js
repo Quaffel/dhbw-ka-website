@@ -3,10 +3,12 @@ const path = require('path');
 
 const CopyPlugin = require('copy-webpack-plugin');
 
-const commonConfiguration = require('./webpack.common');
+const commonConfiguration = require('./webpack.common')({
+  styleLocalIdentName: '[hash]'
+});
 
 module.exports = merge(commonConfiguration, {
-  mode: "production",
+  mode: 'production',
 
   output: {
     filename: '[name]/bundle.js',
@@ -17,9 +19,9 @@ module.exports = merge(commonConfiguration, {
     new CopyPlugin({
       patterns: [
         {
-          from: "src/static",
-          to: ".",
-          toType: "dir"
+          from: 'src/static',
+          to: '.',
+          toType: 'dir'
         }
       ]
     })
