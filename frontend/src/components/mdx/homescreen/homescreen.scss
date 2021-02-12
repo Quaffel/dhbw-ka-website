@@ -1,15 +1,21 @@
 @use '../../style/globals';
 
 .homeContainer{
-    position: relative;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg');
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     text-align: center;
-    color:blue;
-    font-size: 30pt;
+    color:rgb(255, 145, 0);
+    font-size: 40pt;
+
 }
 
 .centered {
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
   }
