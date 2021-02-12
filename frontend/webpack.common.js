@@ -1,4 +1,4 @@
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 /**
  * @param options {{styleLocalIdentName: string}}
@@ -45,8 +45,8 @@ module.exports = function(options) {
 
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.mdx'],
-      modules: ['src', 'content', 'node_modules'],
+      modules: ['src', 'node_modules'],
       plugins: [new TsconfigPathsPlugin()]
     }
-  }
-}
+  };
+};
