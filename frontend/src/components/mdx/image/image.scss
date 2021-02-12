@@ -50,3 +50,13 @@
   object-fit: cover;
   object-position: center;
 }
+
+.image-left {
+  @include image;
+  float:left;
+}
+
+.image-right {
+  @include image;
+  float: right;
+}
