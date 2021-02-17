@@ -1,0 +1,125 @@
+@use '../style/globals';
+
+$section-group-margin: 1rem;
+$section-item-margin: 0.5rem;
+$section-margin: 1rem;
+
+nav {
+  width: 100%;
+
+  display: block;
+  align-items: center;
+
+  position: relative;
+
+  padding: 1rem 0;
+
+  text-align: center;
+
+  .ruler {
+    height: 0.1rem;
+    width: 80%;
+
+    background-color: globals.$color-secondary;
+  }
+
+  .brand {
+    font-size: 2rem;
+    font-weight: bold;
+
+    position: relative;
+    z-index: 2;
+
+    margin: $section-group-margin 0;
+  }
+
+
+  .section-group {
+    @mixin group() {
+      margin: $section-group-margin;
+      width: 100%;
+
+      z-index: 1;
+    }
+
+    &-primary {
+      @include group();
+
+      display: block;
+      position: absolute;
+      transition: all 1s;
+      &.collapsed {
+        transform: translateY(-100%);
+      }
+    }
+
+    &-secondary {
+      @include group();
+    }
+  }
+
+  .section {
+    margin: $section-margin 0;
+
+    h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: $section-item-margin 0;
+        list-style: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+
+    .ruler {
+      width: 0.1rem;
+      height: auto;
+
+      align-self: normal;
+    }
+
+    .section-group {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: center;
+
+      margin: 0 $section-group-margin;
+
+      &-primary {
+        flex-grow: 2;
+        transform: none !important;
+      }
+      &-secondary {
+        flex-grow: 1;
+      }
+    }
+
+    .section {
+      ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+          margin: 0 1rem;
+        }
+      }
+
+      margin: 0 2rem;
+    }
+  }
+}

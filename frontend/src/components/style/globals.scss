@@ -3,6 +3,8 @@ $color-secondary: red;
 $color-font-primary: black;
 $color-font-secondary: darkgray;
 
-html, body {
+html, body, .app {
   font-size: 11pt;
+  margin: 0;
+  padding: 0;
 }
