@@ -1,10 +1,12 @@
-$color-primary: darkred;
-$color-secondary: red;
+$color-primary: red;
+$color-secondary: black;
 $color-font-primary: black;
-$color-font-secondary: darkgray;
+$color-font-secondary: white;
 
-html, body, .app {
+html, body, #app {
   font-size: 11pt;
   margin: 0;
   padding: 0;
+
+  overflow: visible;
 }

@@ -35,7 +35,8 @@ export default function Navbar(
   }
 
   return <nav>
-    <div className={buildClassNames(navbarStyles, ["section-group", "brand"], [["collapsed"]], [collapsed])} onClick={toogleCollapsed}>
+    <button onClick={toogleCollapsed} />
+    <div className={buildClassNames(navbarStyles, ["section-group", "brand"], [["collapsed"]], [collapsed])}>
       {brandElement}
     </div>
     <div className={navbarStyles["ruler"]} />

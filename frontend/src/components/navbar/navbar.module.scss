@@ -5,52 +5,93 @@ $section-item-margin: 0.5rem;
 $section-margin: 1rem;
 
 nav {
-  width: 100%;
-
   display: block;
   align-items: center;
 
-  position: relative;
+  overflow: visible;
 
-  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
 
   text-align: center;
+
+  color: globals.$color-font-secondary;
+  background-color: globals.$color-secondary;
+
+  button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 1.5rem;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    margin: auto 0;
+
+    z-index: 4;
+
+    border: white 2px;
+    color: white;
+    background-color: unset;
+    background-image: url('../../static/img/hamburger-icon.svg');
+    filter: invert(1);
+    background-position: center;
+    background-size: contain;
+  }
 
   .ruler {
     height: 0.1rem;
     width: 80%;
 
-    background-color: globals.$color-secondary;
+    margin: 0 auto;
+
+    background-color: globals.$color-primary;
   }
 
   .brand {
+    display: block;
+    position: sticky;
+    z-index: 3;
+
+    box-sizing: border-box;
+
+    top: 0;
+
     font-size: 2rem;
     font-weight: bold;
 
-    position: relative;
-    z-index: 2;
+    padding: calc(#{$section-group-margin}) 0;
 
-    margin: $section-group-margin 0;
+    background-color: globals.$color-secondary;
   }
 
+  .expansion-card {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    z-index: 2;
+
+    transition: all 1s;
+
+    background-color: globals.$color-secondary;
+
+    &.collapsed {
+      transform: translateY(-100%);
+    }
+  }
 
   .section-group {
     @mixin group() {
-      margin: $section-group-margin;
-      width: 100%;
+      padding: calc(#{$section-group-margin} / 2) 0;
 
       z-index: 1;
     }
 
     &-primary {
       @include group();
-
-      display: block;
-      position: absolute;
-      transition: all 1s;
-      &.collapsed {
-        transform: translateY(-100%);
-      }
     }
 
     &-secondary {
@@ -63,6 +104,7 @@ nav {
 
     h1 {
       margin: 0;
+
       font-size: 1.2rem;
       font-weight: bold;
     }
@@ -81,9 +123,9 @@ nav {
 
 @media screen and (min-width: 800px) {
   nav {
-    align-items: center;
-    align-content: center;
-    flex-direction: row;
+    button {
+      display: none;
+    }
 
     .ruler {
       width: 0.1rem;
@@ -92,9 +134,25 @@ nav {
       align-self: normal;
     }
 
+    .expansion-card {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+
+      width: unset;
+      position: relative;
+
+      padding-bottom: 1rem;
+
+      &.collapsed {
+        transform: translateY(0);
+      }
+    }
+
     .section-group {
       display: flex;
       flex-direction: row;
+      align-items: center;
 
       justify-content: center;
 
@@ -120,6 +178,27 @@ nav {
       }
 
       margin: 0 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+
+    padding: $section-group-margin;
+
+    .brand {
+      padding: 0;
+      flex-grow: 1;
+    }
+
+    .expansion-card {
+      padding-bottom: 0;
+      flex-grow: 3;
     }
   }
 }
