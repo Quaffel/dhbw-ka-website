@@ -1,8 +1,18 @@
 @use '../../style/globals';
 
 .infoContainer{
+    display:flex;
     position: relative;
     text-align: center;
+    width: 100%;
     color:rgb(0, 0, 0);
     font-size: 20pt;
+}
+
+.text{
+    flex-grow:3;
+}
+
+.image{
+    width:30%;
 }
