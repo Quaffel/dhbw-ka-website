@@ -6,6 +6,8 @@ import React from "react";
 
 export function Homescreen({ props, text }: { src: string, props: string, alt: string, text: string }) {
     return <div className="homeContainer">
-        <TextField text = {text} props = {"centered"}/>
+        <div className="homeContainer-inside">
+            Willkommen in Karlsruhe
         </div>
+    </div>
   }

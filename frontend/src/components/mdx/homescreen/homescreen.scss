@@ -1,21 +1,36 @@
 @use '../../style/globals';
 
 .homeContainer{
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg');
-    background-size: 100% 100%;
-    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    right: 0;
-    text-align: center;
-    color:rgb(255, 145, 0);
-    font-size: 40pt;
-
+    right:0;
+    height:100vh;
+    width:100vw;
+    display:grid;
+    place-items:center;
+    position:absolute;
+    color:black;
 }
 
-.centered {
-    position: relative;
-    top: 50%;
-    left: 50%;
-  }
+.homeContainer::before{
+    content:"";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right:0;
+    width:100vw;
+    height:100vh;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg');
+    background-size: cover;
+    background-position: center 0%;
+    position: absolute;
+    filter: blur(2px) grayscale(20%);
+}
+
+.homeContainer-inside{
+    color:black;
+    font-size:40pt;
+    text-align:center;
+    z-index:1;
+}
