@@ -7,7 +7,7 @@ import React from "react";
 export function Homescreen({ props, text }: { src: string, props: string, alt: string, text: string }) {
     return <div className="homeContainer">
         <div className="homeContainer-inside">
-            Willkommen in Karlsruhe
+            {text}
         </div>
     </div>
   }
