@@ -9,10 +9,27 @@
     font-size: 20pt;
 }
 
-.text{
-    flex-grow:3;
+@media (min-width: 450px){
+    .infoContainer{
+        flex-direction: row;
+    }
+    .text{
+        flex-grow:3;
+    }
+
+    .image{
+        width:30%;
+    }
 }
 
-.image{
-    width:30%;
+@media (max-width: 450px){
+    .infoContainer{
+        flex-direction: column;
+    }
+    .text{
+        width:100%;
+    }
+    .image{
+        width:100%;
+    }
 }
