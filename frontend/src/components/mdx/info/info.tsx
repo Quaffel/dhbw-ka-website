@@ -4,9 +4,10 @@ import { TextField } from 'components/mdx/textField/textField';
 
 import React from "react";
 
-export function Info({ src, propsImage, propsText, alt, text }: { src: string, propsImage: string, propsText: string, alt: string, text: string }) {
-        if(propsImage.includes("left")){
+export function Info({ src, propsImage, propsText, alt, text, addInfo }: { src: string, propsImage: string, propsText: string, alt: string, text: string, addInfo:string }) {
+        if(propsImage.includes("left") || window.innerWidth <= 450){
             return <div className="infoContainer">
+                <div className="additionalInfo">{addInfo}</div>
                 <div className="image">
                 <Image src ={src} props = { propsImage }  alt = { alt} />
                 </div>
@@ -22,6 +23,7 @@ export function Info({ src, propsImage, propsText, alt, text }: { src: string, p
                 <div className="image">
                 <Image src ={src} props = { propsImage }  alt = { alt} />
                 </div>
+                <div className="additionalInfo">{addInfo}</div>
             </div>
         }
 }

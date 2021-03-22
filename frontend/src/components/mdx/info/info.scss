@@ -20,6 +20,10 @@
     .image{
         width:30%;
     }
+    .additionalInfo{
+        width:10%;
+        font-size:10pt;
+    }
 }
 
 @media (max-width: 450px){
@@ -31,5 +35,8 @@
     }
     .image{
         width:100%;
+    }
+    .additionalInfo{
+        display:none;
     }
 }
