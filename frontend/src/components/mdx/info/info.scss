@@ -24,6 +24,9 @@
         width:10%;
         font-size:10pt;
     }
+    .additionalInfo:empty{
+        display:none;
+    }
 }
 
 @media (max-width: 450px){
