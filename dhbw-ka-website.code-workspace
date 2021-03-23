@@ -20,7 +20,7 @@
 			]
 		},
 		"eslint.workingDirectories": [
-			"./frontend"
+			"frontend"
 		],
 		"eslint.validate": [
 			"javascript",
