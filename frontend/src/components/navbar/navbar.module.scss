@@ -5,16 +5,11 @@ $section-item-margin: 0.5rem;
 $section-margin: 1rem;
 
 nav {
-  display: block;
   align-items: center;
-
-  overflow: visible;
+  text-align: center;
 
   position: sticky;
-  top: 0;
   width: 100%;
-
-  text-align: center;
 
   color: globals.$color-font-secondary;
   background-color: globals.$color-secondary;
@@ -32,13 +27,13 @@ nav {
 
     z-index: 4;
 
-    border: white 2px;
+    border: none;
     color: white;
     background-color: unset;
     background-image: url('../../static/img/hamburger-icon.svg');
-    filter: invert(1);
     background-position: center;
     background-size: contain;
+    filter: invert(1);
   }
 
   .ruler {
@@ -51,27 +46,23 @@ nav {
   }
 
   .brand {
-    display: block;
     position: sticky;
+    top: 0;
     z-index: 3;
 
     box-sizing: border-box;
-
-    top: 0;
+    padding: $section-group-margin 0;
 
     font-size: 2rem;
     font-weight: bold;
-
-    padding: calc(#{$section-group-margin}) 0;
 
     background-color: globals.$color-secondary;
   }
 
   .expansion-card {
-    display: block;
     position: absolute;
-
     width: 100%;
+
     z-index: 2;
 
     transition: all 1s;
@@ -85,9 +76,7 @@ nav {
 
   .section-group {
     @mixin group() {
-      padding: calc(#{$section-group-margin} / 2) 0;
-
-      z-index: 1;
+      padding: ($section-group-margin/ 2) 0;
     }
 
     &-primary {
@@ -173,11 +162,11 @@ nav {
         flex-direction: row;
 
         li {
-          margin: 0 1rem;
+          margin: 0 (2 * $section-item-margin);
         }
       }
 
-      margin: 0 2rem;
+      margin: 0 (2 * $section-margin);
     }
   }
 }
@@ -186,8 +175,6 @@ nav {
   nav {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    align-content: center;
 
     padding: $section-group-margin;
 

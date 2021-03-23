@@ -30,12 +30,12 @@ export default function Navbar(
 
   const [collapsed, setCollapsed] = React.useState<boolean>(true);
 
-  function toogleCollapsed() {
+  function toggleCollapsed() {
     setCollapsed(previous => !previous);
   }
 
   return <nav>
-    <button onClick={toogleCollapsed} />
+    <button onClick={toggleCollapsed} />
     <div className={buildClassNames(navbarStyles, ["section-group", "brand"], [["collapsed"]], [collapsed])}>
       {brandElement}
     </div>
