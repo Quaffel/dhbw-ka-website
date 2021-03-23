@@ -1,3 +1,3 @@
 declare module '*.mdx' {
-  export default function (props: any): JSX.Element;
+  export default function (props: unknown): JSX.Element;
 }
