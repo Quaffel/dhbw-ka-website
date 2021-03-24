@@ -1,4 +1,5 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const path = require("path");
 
 /**
  * @param options {{styleLocalIdentName: string}}
@@ -32,7 +33,13 @@ module.exports = function(options) {
               options: {
                 esModule: true,
                 modules: {
-                  localIdentName: options?.styleLocalIdentName ?? '[hash]'
+                  localIdentName: (() => {
+                    if (options && options.styleLocalIdentName) {
+                      return options.styleLocalIdentName;
+                    } else {
+                      return '[hash]';
+                    }
+                  })()
                 },
                 importLoaders: 1
               }
@@ -53,7 +60,9 @@ module.exports = function(options) {
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.mdx'],
       modules: ['src', 'node_modules'],
-      plugins: [new TsconfigPathsPlugin()]
+      plugins: [new TsconfigPathsPlugin({
+        configFile: path.join(__dirname, "tsconfig.json")
+      })]
     }
   };
 };
