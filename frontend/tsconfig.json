@@ -7,17 +7,20 @@
     "target": "es6",
     "sourceMap": true,
     "jsx": "react",
+    "baseUrl": "src",
     "lib": [
       "DOM",
       "ES2020"
     ],
-    "rootDirs": ["src", "content"],
-    "baseUrl": "src"
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "asIs"
+        }
+      }
+    ]
   },
-  "include": [
-    "src",
-    "content"
-  ],
   "exclude": [
     "node_modules"
   ]
