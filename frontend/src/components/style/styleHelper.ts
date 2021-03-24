@@ -14,8 +14,8 @@ export function buildClassNames<S extends { [styleRuleName: string]: string }>(
   const activeClasses = (conditionalClasses
     // Safe cast: If conditional classes are given, conditions are given as well (see first assertion)
     ?.filter((_, index) => (conditions as NonNullable<typeof conditions>)[index])
-    ?.flatMap(value => value) // Using Array#flat causes typing issues
-    ?.concat(baseClasses)) ?? baseClasses;
+    .flatMap(value => value) // Using Array#flat causes typing issues
+    .concat(baseClasses)) ?? baseClasses;
 
   return activeClasses
     .map(className => stylesObject[className])
