@@ -12,9 +12,9 @@ export function buildClassNames<S extends { [styleRuleName: string]: string }>(
   }
 
   const activeClasses = (conditionalClasses
-    // If conditional classes are given, conditions are given as well (see first assertion)
+    // Safe cast: If conditional classes are given, conditions are given as well (see first assertion)
     ?.filter((_, index) => (conditions as NonNullable<typeof conditions>)[index])
-    ?.flatMap(value => value)
+    ?.flatMap(value => value) // Using Array#flat causes typing issues
     ?.concat(baseClasses)) ?? baseClasses;
 
   return activeClasses
@@ -28,8 +28,8 @@ export function buildClassNamesComplex<S extends { [styleRuleName: string]: stri
   conditions: C
 ): string {
   return Object.entries(classCollections)
-    .filter(([collectionName, _]) => conditions[collectionName])
-    .flatMap(([_, collectionClassNames]) => collectionClassNames)
+    .filter(([collectionName,]) => conditions[collectionName])
+    .flatMap(([, collectionClassNames]) => collectionClassNames)
     .map(className => stylesObject[className])
     .join(" ");
 }
