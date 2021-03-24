@@ -1,18 +1,24 @@
 import navbarStyles from './navbar.module.scss';
 
-import React from 'react';
+import * as React from 'react';
 import { buildClassNames } from 'components/style/styleHelper';
 import { NonEmptyArray } from 'types/utilityTypes';
 
 export interface NavbarSection {
   name: string,
   content?: React.ReactElement | null,
-  items: Array<NavbarItem>
+  items: Array<NavbarItem>,
+  styleOptions?: {
+    focussed?: boolean
+  }
 }
 
 export interface NavbarItem {
   name: string,
   content?: React.ReactElement | null
+  styleOptions?: {
+    focussed?: boolean
+  }
 }
 
 export default function Navbar(
@@ -25,28 +31,43 @@ export default function Navbar(
     brandElement: React.ReactElement | string,
     leftSections: NonEmptyArray<NavbarSection>,
     rightSections: NonEmptyArray<NavbarSection>,
-    onSelection?: (section: NavbarSection, item: NavbarItem | null) => void
+    onSelection?: (section: string, item: string | null) => void
   }
 ): React.ReactElement {
   const [leftSectionElements, rightSectionElements] = React.useMemo(() => {
+    function buildSelectableElement<E extends HTMLElement>(
+      tagName: E["tagName"],
+      customProps: React.HTMLAttributes<E> & React.Attributes,
+      contentData: Pick<NavbarItem, "name" | "content">,
+      selectionData: Parameters<NonNullable<typeof onSelection>>,
+      styleOptions: { focussed: boolean | undefined }
+    ): React.ReactElement {
+      // Fast path: Element is supposed not to be visible
+      if (contentData.content === null) {
+        return <></>;
+      }
+
+      const combinedProps = Object.assign<React.HTMLAttributes<HTMLElement>, React.HTMLAttributes<E>>({
+        onClick: () => onSelection && onSelection(...selectionData),
+        className: buildClassNames(navbarStyles, [], [["focussed"]], [styleOptions.focussed ?? false])
+      }, customProps);
+
+      const content = contentData.content ?? contentData.name;
+
+      return React.createElement<React.HTMLAttributes<E>, E>(tagName, combinedProps, [content]);
+    }
+
     function buildSectionElement(section: NavbarSection): React.ReactElement {
       const buildSectionHeaderElement = (() => {
-        if (section.content === null) {
-          console.log("NULL");
-          return <></>;
-        } else if (section.content === undefined) {
-          return <h1 onClick={() => onSelection && onSelection(section, null)}>{section.name}</h1>;
-        } else {
-          return <div onClick={() => onSelection && onSelection(section, null)}>{section.content}</div>;
-        }
+        return buildSelectableElement<HTMLHeadingElement>(
+          "h1", {}, section, [section.name, null],
+          { focussed: section.styleOptions?.focussed }
+        );
       });
       const buildSectionItemElement = ((item: NavbarItem) => {
-        if (item.content === null) {
-          return <></>;
-        }
-        return <li key={item.name} onClick={() => onSelection && onSelection(section, item)}>
-          {item.content ?? item.name}
-        </li>;
+        return buildSelectableElement<HTMLLIElement>("li", {
+          key: item.name
+        }, item, [section.name, item.name], { focussed: item.styleOptions?.focussed ?? false });
       });
 
       return <div className={navbarStyles["section"]}>

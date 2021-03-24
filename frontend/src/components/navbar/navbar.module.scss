@@ -108,6 +108,10 @@ nav {
       }
     }
   }
+
+  .focussed {
+    text-decoration: underline;
+  }
 }
 
 @media screen and (min-width: 800px) {
