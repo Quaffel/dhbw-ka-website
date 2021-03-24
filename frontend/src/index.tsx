@@ -25,6 +25,8 @@ function App() {
       ]}
       rightSections={[
         {
+          name: "Contact information",
+          //content: null,
           items: ["Contact us"]
         }
       ]}
