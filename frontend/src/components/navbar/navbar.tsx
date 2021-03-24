@@ -7,26 +7,52 @@ import { NonEmptyArray } from 'types/utilityTypes';
 export interface NavbarSection {
   name: string,
   content?: React.ReactElement | null,
-  items: Array<string | React.ReactElement>;
+  items: Array<NavbarItem>
+}
+
+export interface NavbarItem {
+  name: string,
+  content?: React.ReactElement | null
 }
 
 export default function Navbar(
   {
     brandElement,
     leftSections,
-    rightSections
+    rightSections,
+    onSelection
   }: {
     brandElement: React.ReactElement | string,
     leftSections: NonEmptyArray<NavbarSection>,
-    rightSections: NonEmptyArray<NavbarSection>
+    rightSections: NonEmptyArray<NavbarSection>,
+    onSelection?: (section: NavbarSection, item: NavbarItem | null) => void
   }
 ): React.ReactElement {
   const [leftSectionElements, rightSectionElements] = React.useMemo(() => {
     function buildSectionElement(section: NavbarSection): React.ReactElement {
+      const buildSectionHeaderElement = (() => {
+        if (section.content === null) {
+          console.log("NULL");
+          return <></>;
+        } else if (section.content === undefined) {
+          return <h1 onClick={() => onSelection && onSelection(section, null)}>{section.name}</h1>;
+        } else {
+          return <div onClick={() => onSelection && onSelection(section, null)}>{section.content}</div>;
+        }
+      });
+      const buildSectionItemElement = ((item: NavbarItem) => {
+        if (item.content === null) {
+          return <></>;
+        }
+        return <li key={item.name} onClick={() => onSelection && onSelection(section, item)}>
+          {item.content ?? item.name}
+        </li>;
+      });
+
       return <div className={navbarStyles["section"]}>
-        {section.content ?? (section.content !== null ? <h1>{section.name}</h1> : <></>)}
+        {buildSectionHeaderElement()}
         <ul>
-          {section.items.map((item, index) => <li key={index}>{item}</li>)}
+          {section.items.map(buildSectionItemElement)}
         </ul>
       </div>;
     }

@@ -11,15 +11,15 @@ function App() {
         {
           name: "Section #1",
           items: [
-            "Category 1.1",
-            "Category 1.2"
+            { name: "Category 1.1" },
+            { name: "Category 1.2" }
           ]
         },
         {
           name: "Section #2",
           items: [
-            "Category 2.1",
-            "Category 2.2"
+            {name: "Category 2.1" },
+            {name: "Category 2.2" }
           ]
         }
       ]}
@@ -27,7 +27,9 @@ function App() {
         {
           name: "Contact information",
           //content: null,
-          items: ["Contact us"]
+          items: [
+            { name: "Contact us" }
+          ]
         }
       ]}
     ></Navbar>
