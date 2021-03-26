@@ -10,9 +10,14 @@
 }
 
 @media (min-width: 450px){
-    .infoContainer{
+    .infoContainer-left{
         flex-direction: row;
     }
+
+    .infoContainer-right{
+      flex-direction: row-reverse;
+    }
+
     .text{
         flex-grow:3;
     }
@@ -29,7 +34,7 @@
     }
 }
 
-@media (max-width: 450px){
+
     .infoContainer{
         flex-direction: column;
     }
@@ -42,4 +47,3 @@
     .additionalInfo{
         display:none;
     }
-}
