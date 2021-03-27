@@ -1,19 +1,10 @@
 @use '../../style/globals';
 
 .homeContainer{
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right:0;
-    height:100vh;
-    width:100vw;
     display:grid;
     place-items:center;
     position:absolute;
     color:black;
-}
-
-.homeContainer::before{
     content:"";
     top: 0;
     left: 0;
@@ -21,10 +12,13 @@
     right:0;
     width:100vw;
     height:100vh;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg');
     background-size: cover;
     background-position: center 0%;
     position: absolute;
+}
+
+.homeContainer::before{
+
     filter: blur(2px) grayscale(20%);
 }
 
