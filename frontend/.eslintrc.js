@@ -1,4 +1,6 @@
-{
+const path = require('path');
+
+module.exports = {
   "root": true,
   "env": {
     "browser": true,
@@ -35,7 +37,7 @@
   "settings": {
     "import/resolver": {
       "eslint-import-resolver-webpack": {
-        "config": "./webpack.development.js"
+        "config": path.join(__dirname, "./webpack.development.js")
       }
     }
   },
@@ -66,4 +68,4 @@
     "dist",
     "node_modules"
   ]
-}
+};
