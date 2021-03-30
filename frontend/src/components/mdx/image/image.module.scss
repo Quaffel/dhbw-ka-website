@@ -1,6 +1,5 @@
 @use '../../style/globals';
 
-
 @mixin image($width, $height) {
   image-rendering: optimizeQuality;
 
@@ -29,7 +28,7 @@
   }
 
   &-full {
-    @include square-image(clamp(0px,100%, 1080px ))
+    @include square-image(clamp(0px, 100%, 1080px));
   }
 }
 
@@ -37,6 +36,6 @@
   border-radius: 50%;
 }
 
-.rectangle{
+.rectangle {
   border-radius: 5%;
 }

@@ -1,52 +1,50 @@
 @use '../../style/globals';
 
-.infoContainer{
-    display:flex;
-    position: relative;
-    text-align: center;
-    width: 100%;
-    color:rgb(0, 0, 0);
-    font-size: 20pt;
-    flex-direction: column;
-    margin-bottom:25px;
+.infoContainer {
+  display: flex;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 20pt;
+  flex-direction: column;
+  margin-bottom: 25px;
 }
 
-.text{
-        width:100%;
+.text {
+  width: 100%;
 }
 
-.image{
-        width:100%;
+.image {
+  width: 100%;
 }
 
-.additionalInfo{
-        display:none;
+.additionalInfo {
+  display: none;
 }
 
-@media (min-width: 450px){
-    .infoContainer-left{
-        flex-direction: row;
-    }
+@media (min-width: 450px) {
+  .infoContainer-left {
+    flex-direction: row;
+  }
 
-    .infoContainer-right{
-      flex-direction: row-reverse;
-    }
+  .infoContainer-right {
+    flex-direction: row-reverse;
+  }
 
-    .text{
-        width:65%;
-    }
+  .text {
+    width: 65%;
+  }
 
-    .image{
-      width:25%;
+  .image {
+    width: 25%;
+  }
+  .additionalInfo {
+    width: 15%;
+    font-size: 10pt;
+    display: flex;
+    &:empty {
+      display: none;
     }
-    .additionalInfo{
-        width:15%;
-        font-size:10pt;
-        display:flex;
-        &:empty{
-          display:none;
-        }
-    }
+  }
 }
-
-
