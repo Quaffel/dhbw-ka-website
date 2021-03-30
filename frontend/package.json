@@ -1,51 +1,51 @@
 {
-    "name": "dhbw-ka-website",
-    "version": "0.1.0",
-    "description": "Informational website for aspiring students with everything about Karlsruhe city",
-    "repository": "https://github.com/Quaffel/dhbw-ka-website",
-    "license": "MIT",
-    "contributors": [
-        {
-            "name": "Niklas Radomski",
-            "email": "niklas.radomski@outlook.de"
-        }
-    ],
-    "scripts": {
-        "start": "webpack serve --config webpack.development.js --open",
-        "build-development": "webpack --config webpack.development.js",
-        "build-production": "webpack --config webpack.production.js",
-        "dev": "npm run build-development && npm run start",
-        "lint": "eslint ."
-    },
-    "devDependencies": {
-        "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "sass": "^1.32.5",
-        "typescript": "^4.1.3",
-        "typescript-plugin-css-modules": "^3.1.0",
-        "webpack": "^5.16.0",
-        "webpack-cli": "^4.4.0",
-        "webpack-dev-server": "^3.11.2",
-        "webpack-merge": "^5.7.3",
-        "copy-webpack-plugin": "^7.0.0",
-        "tsconfig-paths-webpack-plugin": "^3.3.0",
-        "style-loader": "^2.0.0",
-        "css-loader": "^5.0.1",
-        "sass-loader": "^10.1.1",
-        "ts-loader": "^8.0.14",
-        "@mdx-js/loader": "^1.6.22",
-        "babel-loader": "^8.2.2",
-        "@babel/core": "^7.12.10",
-        "@babel/preset-env": "^7.12.10",
-        "@babel/preset-react": "^7.12.10",
-        "eslint": "7.19.0",
-        "@typescript-eslint/eslint-plugin": "^4.15.0",
-        "@typescript-eslint/parser": "^4.15.0",
-        "eslint-plugin-import": "^2.22.1",
-        "eslint-import-resolver-webpack": "^0.13.0",
-        "eslint-plugin-mdx": "^1.8.2",
-        "eslint-plugin-react": "^7.22.0"
+  "name": "dhbw-ka-website",
+  "version": "0.1.0",
+  "description": "Informational website for aspiring students with everything about Karlsruhe city",
+  "repository": "https://github.com/Quaffel/dhbw-ka-website",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Niklas Radomski",
+      "email": "niklas.radomski@outlook.de"
     }
+  ],
+  "scripts": {
+    "start": "webpack serve --config webpack.development.js --open",
+    "build-development": "webpack --config webpack.development.js",
+    "build-production": "webpack --config webpack.production.js",
+    "dev": "npm run build-development && npm run start",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.32.5",
+    "typescript": "^4.1.3",
+    "typescript-plugin-css-modules": "^3.1.0",
+    "webpack": "^5.16.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3",
+    "copy-webpack-plugin": "^7.0.0",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "style-loader": "^2.0.0",
+    "css-loader": "^5.0.1",
+    "sass-loader": "^10.1.1",
+    "ts-loader": "^8.0.14",
+    "@mdx-js/loader": "^1.6.22",
+    "babel-loader": "^8.2.2",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "eslint": "7.19.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-mdx": "^1.8.2",
+    "eslint-plugin-react": "^7.22.0"
+  }
 }
