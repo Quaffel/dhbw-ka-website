@@ -29,7 +29,7 @@
   }
 
   &-full {
-    @include square-image(100%)
+    @include square-image(clamp(0px,100%, 1080px ))
   }
 }
 
