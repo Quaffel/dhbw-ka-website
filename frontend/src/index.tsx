@@ -1,9 +1,10 @@
 import { MdxPlaceDescriptionFormatter } from 'components/mdx/style-wrapper/defaults';
 import { useManagedNavbar } from 'components/navbar/managedNavbar';
 import { usePlacesSections } from 'hooks/navbar/places';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestMdxComponent from './content/helloWorld.content.mdx';
+import PlaceholderContent from './content/misc/procrastination.content.mdx';
 
 function App() {
   const placesSections = usePlacesSections();
@@ -24,7 +25,7 @@ function App() {
   return <>
     {navbarEl}
     <MdxPlaceDescriptionFormatter>
-      {<TestMdxComponent />}
+      {<PlaceholderContent />}
     </MdxPlaceDescriptionFormatter>
   </>;
 }
