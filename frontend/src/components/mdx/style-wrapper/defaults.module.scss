@@ -1,0 +1,58 @@
+@use '../../style/globals.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+// Primitive textual elements
+@mixin textual-element {
+  font-family: "Montserrat", sans-serif;
+}
+
+.a-wrapper {
+  @include textual-element();
+
+  text-decoration: underline;
+  color: globals.$color-font-primary;
+}
+
+.p-wrapper {
+  @include textual-element();
+}
+
+
+// Headline elements
+.h1-wrapper, .h2-wrapper, .h3-wrapper, .h4-wrapper, .h5-wrapper, .h6-wrapper {
+  @include textual-element();
+}
+
+
+// Table elements
+.table-wrapper {
+  border-collapse: collapse;
+}
+
+.tr-wrapper {
+  border: 3px solid black;
+
+  border-left: none;
+  border-right: none;
+
+  &:last-child {
+    border: none;
+  }
+
+  &:nth-child(even) {
+    background-color: globals.$color-focus;
+  }
+}
+
+.td-wrapper, .th-wrapper {
+  padding: 1rem;
+}
+
+
+// List elements
+.ul-wrapper, .ol-wrapper, .contains-task-list {
+  @include textual-element();
+
+  list-style-type: upper-roman;
+}
