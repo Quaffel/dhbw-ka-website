@@ -1,0 +1,23 @@
+@use '../../style/globals';
+
+.homeContainer {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  bottom: 0;
+  color: black;
+  content: "";
+  z-index: -5;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 0%;
+}
+
+.homeContainer-inside {
+  background-color: white;
+  color: black;
+  font-size: 40pt;
+  text-align: center;
+  z-index: 1;
+}
