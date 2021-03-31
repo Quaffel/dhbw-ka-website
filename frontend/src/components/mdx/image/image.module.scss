@@ -26,8 +26,16 @@
   &-large {
     @include square-image(15rem);
   }
+
+  &-full {
+    @include square-image(clamp(0px, 100%, 1080px));
+  }
 }
 
 .round {
   border-radius: 50%;
+}
+
+.rectangle {
+  border-radius: 5%;
 }

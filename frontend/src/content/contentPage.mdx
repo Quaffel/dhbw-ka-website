@@ -1,0 +1,16 @@
+import { Info } from '../components/mdx/info/info';
+import {Homescreen} from '../components/mdx/homescreen/homescreen';
+
+<Homescreen src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg"}
+  propsImage={"image-rectangle image-full"} text={"Willkommen in Karlsruhe"} alt={"A lorem picsum"}/>
+
+
+<Info src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg"}
+  imagePosition={"left"} alt={"A lorem picsum"} text={"Bilder können sowohl links vom Text,"}
+  addInfo={"Hier stehen Öfnnungszeiten, Adresse, o.ä."}/>
+<Info src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg"}
+  imagePosition={"right"} alt={"A lorem picsum"}
+  text={"als auch rechts vom Text sein. Problem ist jetzt nur noch, dass Bilder in Zeilen ohne addInfo ein wenig größer sind."}
+  addInfo={"Zum nächsten Bild gibts keine zusätzlichen Infos, deshalb wird dort nichts angezeigt!"}/>
+<Info src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Karlsruhe-Schloss-meph666-2005-Apr-22.jpg"}
+  imagePosition={"left"} alt={"A lorem picsum"} text={"Das ist das Karlsruher Schloss. Gebaut wurde es damals und seitdem steht es da."}/>
