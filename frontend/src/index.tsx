@@ -1,27 +1,16 @@
+import { MdxPlaceDescriptionFormatter } from 'components/mdx/style-wrapper/defaults';
 import { useManagedNavbar } from 'components/navbar/managedNavbar';
+import { usePlacesSections } from 'hooks/navbar/places';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestMdxComponent from "../content/helloWorld.mdx";
+import TestMdxComponent from './content/helloWorld.content.mdx';
 
 function App() {
+  const placesSections = usePlacesSections();
+
   const [navbarEl, selection] = useManagedNavbar({
-    brandElement: "Test brand",
-    leftSections: [
-      {
-        name: "Section #1",
-        items: [
-          { name: "Category 1.1" },
-          { name: "Category 1.2" }
-        ]
-      },
-      {
-        name: "Section #2",
-        items: [
-          {name: "Category 2.1" },
-          {name: "Category 2.2" }
-        ]
-      }
-    ],
+    brandElement: "DHBW Karlsruhe Infosite",
+    leftSections: [...placesSections],
     rightSections: [
       {
         name: "Contact information",
@@ -34,8 +23,9 @@ function App() {
 
   return <>
     {navbarEl}
-    <h1>Hello world from jsx!</h1>
-    {<TestMdxComponent />}
+    <MdxPlaceDescriptionFormatter>
+      {<TestMdxComponent />}
+    </MdxPlaceDescriptionFormatter>
   </>;
 }
 
