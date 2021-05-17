@@ -11,6 +11,8 @@ nav {
   position: sticky;
   width: 100%;
 
+  box-sizing: border-box;
+
   color: globals.$color-font-secondary;
   background-color: globals.$color-secondary;
 
