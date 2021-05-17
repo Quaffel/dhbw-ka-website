@@ -1,13 +1,13 @@
-import { place as emaille } from './places/emaille.place.mdx';
-import { place as extrablatt } from './places/extrablatt.place.mdx';
-import { place as cafebleu } from './places/cafebleu.place.mdx';
+import * as emaille from './places/emaille.place.mdx';
+import * as extrablatt from './places/extrablatt.place.mdx';
+import * as cafebleu from './places/cafebleu.place.mdx';
 
 export const places = {
   "restaurants": [
-    emaille
+    { info: emaille.place, content: emaille.default }
   ],
   "cafes": [
-    extrablatt,
-    cafebleu
+    { info: extrablatt.place, content: extrablatt.default },
+    { info: cafebleu.place, content: cafebleu.default }
   ]
 };

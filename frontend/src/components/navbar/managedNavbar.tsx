@@ -25,7 +25,6 @@ export function useManagedNavbar({
 
   const [styledLeftSections, styledRightSections] = React.useMemo(() => {
     function buildFocussed<T extends NavbarSection | NavbarItem>(target: T): T & { styleOptions: { focussed: boolean } } {
-      console.log("Selected: ", target);
       return { ...target, styleOptions: { focussed: true } };
     }
 

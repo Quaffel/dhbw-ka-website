@@ -3,13 +3,15 @@ import { places } from '../../content/index';
 
 import * as React from 'react';
 import { isNonEmptyArray, NonEmptyArray } from 'types/utilityTypes';
+import { SiteNavbarItem, SiteNavbarSection } from 'index';
 
-export function usePlacesSections(): NonEmptyArray<NavbarSection> {
-  const sections = React.useMemo<Array<NavbarSection>>(() => {
+export function usePlacesSiteSections(): NonEmptyArray<SiteNavbarSection> {
+  const sections = React.useMemo<Array<SiteNavbarSection>>(() => {
     return Object.entries(places)
       .map(([categoryName, categoryPlaces]) => {
-        const placesItems: Array<NavbarItem> = categoryPlaces.map(place => ({
-          name: place.name
+        const placesItems: Array<SiteNavbarItem> = categoryPlaces.map(place => ({
+          name: place.info.name,
+          siteContent: place.content
         }));
 
         return {
