@@ -2,6 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+// Wrapper for all mdx content
+
+.global-wrapper {
+  margin: 1rem;
+}
+
+
 // Primitive textual elements
 @mixin textual-element {
   font-family: "Montserrat", sans-serif;

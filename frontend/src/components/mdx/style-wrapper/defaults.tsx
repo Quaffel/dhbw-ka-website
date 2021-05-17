@@ -10,8 +10,10 @@ export function MdxPlaceDescriptionFormatter(props: React.PropsWithChildren<unkn
   ): (props: MDXProviderProps) => React.ReactElement {
     const className = (mdxWrapperStyles as any)?.[`${elementName}-wrapper`];
 
-    return (props: MDXProviderProps) => React.createElement<React.HTMLAttributes<E>>(
-      elementName, { className, ...props }, props.children
+    return (props: MDXProviderProps) => (<div className={mdxWrapperStyles["global-wrapper"]}>
+      {React.createElement<React.HTMLAttributes<E>>(
+      elementName, { className, ...props }, props.children)}
+    </div>
     );
   }
 
