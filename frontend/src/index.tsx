@@ -1,41 +1,68 @@
+import { MdxPlaceDescriptionFormatter } from 'components/mdx/style-wrapper/defaults';
 import { useManagedNavbar } from 'components/navbar/managedNavbar';
+import { NavbarItem, NavbarSection } from 'components/navbar/navbar';
+import { usePlacesSiteSections } from 'hooks/navbar/places';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestMdxComponent from "../content/helloWorld.mdx";
+import ContentProcrastination from './content/misc/procrastination.content.mdx';
+import ContentContact from './content/contact.content.mdx'
+
+export interface SiteNavbarItem extends NavbarItem {
+  siteContent: React.ReactNode
+}
+
+export interface SiteNavbarSection extends NavbarSection {
+  siteContent?: React.ReactNode,
+  items: Array<SiteNavbarItem>
+}
 
 function App() {
-  const [navbarEl, selection] = useManagedNavbar({
-    brandElement: "Test brand",
-    leftSections: [
+  const placesSections = usePlacesSiteSections();
+  const procrastinationSection = React.useMemo<SiteNavbarSection>(() => ({
+    name: "guides",
+    items: [
       {
-        name: "Section #1",
-        items: [
-          { name: "Category 1.1" },
-          { name: "Category 1.2" }
-        ]
-      },
-      {
-        name: "Section #2",
-        items: [
-          {name: "Category 2.1" },
-          {name: "Category 2.2" }
-        ]
-      }
-    ],
-    rightSections: [
-      {
-        name: "Contact information",
-        items: [
-          { name: "Contact us" }
-        ]
+        name: "how to deal with procrastination",
+        siteContent: ContentProcrastination
       }
     ]
+  }), []);
+  const contactSection = React.useMemo<SiteNavbarSection>(() => ({
+    name: "Contact information",
+    items: [
+      {
+        name: "Contact us",
+        siteContent: ContentContact
+      }
+    ]
+  }), []);
+
+  let [navbarEl, selection] = useManagedNavbar({
+    brandElement: "DHBW Karlsruhe Infosite",
+    leftSections: [...placesSections],
+    rightSections: [contactSection]
   });
+
+  const ContentSite = React.useMemo<any>(() => {
+    const selectableSections = [...placesSections, contactSection];
+    const selectedSection = selectableSections.find(it => it.name === selection?.section);
+
+    let result = selectedSection?.siteContent;
+
+    if (selectedSection) {
+      const selectedItem = selectedSection.items.find(it => it.name === selection?.item);
+      result = selectedItem?.siteContent || result;
+    }
+
+    return result;
+  }, [selection, placesSections, contactSection]) ?? contactSection.items[0].siteContent;
 
   return <>
     {navbarEl}
-    <h1>Hello world from jsx!</h1>
-    {<TestMdxComponent />}
+    <MdxPlaceDescriptionFormatter>
+      <ContentSite />
+    </MdxPlaceDescriptionFormatter>
   </>;
 }
 
